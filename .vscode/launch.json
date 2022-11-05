@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch MsvcUsersApplication",
+            "request": "launch",
+            "mainClass": "com.jsolutions.springcloud.msvc.users.MsvcUsersApplication",
+            "projectName": "msvc-users"
+        },
+        {
+            "type": "java",
+            "name": "Launch MsvcCoursesApplication",
+            "request": "launch",
+            "mainClass": "com.jsolutions.springcloud.msvc.courses.MsvcCoursesApplication",
+            "projectName": "msvc-courses"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsvcUsersApplication<msvc-users>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.jsolutions.springcloud.msvc.users.msvcusers.MsvcUsersApplication",
+            "projectName": "msvc-users",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

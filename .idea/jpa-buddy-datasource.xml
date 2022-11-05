@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="45a7a74d-7e16-4720-9a37-5e2d14b27f8e" name="courses" url="jdbc:postgresql://localhost/msvc_courses" driverClass="org.postgresql.Driver" />
+      <data-source id="8de8c917-215c-421f-8599-9cb9a2323c9d" name="users" url="jdbc:mysql://localhost/msvc_users?useSSL=false&amp;allowMultiQueries=true&amp;serverTimezone=UTC" driverClass="com.mysql.jdbc.Driver" />
+    </data-sources>
+  </component>
+</project>
