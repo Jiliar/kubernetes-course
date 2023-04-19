@@ -18,7 +18,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Course> lisAll() {
+    public List<Course> listAll() {
         return repository.findAll();
     }
 

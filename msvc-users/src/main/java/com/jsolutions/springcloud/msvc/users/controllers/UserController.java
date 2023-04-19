@@ -26,7 +26,7 @@ public class UserController {
     
     @GetMapping("/")
     public List<User> list(){
-        return service.lisAll();
+        return service.listAll();
     }
 
     @GetMapping("/id/{id}")

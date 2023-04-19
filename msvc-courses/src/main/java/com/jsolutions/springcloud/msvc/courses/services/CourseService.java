@@ -7,9 +7,9 @@ import com.jsolutions.springcloud.msvc.courses.models.entities.Course;
 
 public interface CourseService {
     
-    List<Course> lisAll();
+    List<Course> listAll();
     Optional<Course> findById(Long id);
-    Course save(Course user);
+    Course save(Course course);
     void delete(Long id);
     
 }

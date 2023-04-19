@@ -1,8 +1,13 @@
 package com.jsolutions.springcloud.msvc.courses.controllers;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import com.jsolutions.springcloud.msvc.courses.clients.UserClientRest;
+import com.jsolutions.springcloud.msvc.courses.models.User;
 import com.jsolutions.springcloud.msvc.courses.models.entities.Course;
 import com.jsolutions.springcloud.msvc.courses.services.CourseService;
 import com.jsolutions.springcloud.msvc.courses.utils.Utils;
@@ -26,10 +31,26 @@ public class CourseController {
 
     @Autowired
     private CourseService service;
+
+    @Autowired
+    private UserClientRest client;
     
     @GetMapping("/")
     public List<Course> list(){
-        return service.lisAll();
+         return service.listAll()
+                 .stream()
+                .map(courseUser->{
+                    List<User> users = new ArrayList<>();
+                    courseUser.getCourseUsers()
+                            .forEach(idUser->{
+                                User user = client.getUserById(idUser.getIdUsuario());
+                                users.add(user);
+                            });
+                    courseUser.setUsers(users.stream()
+                            .sorted(Comparator.comparing(User::getApellido))
+                            .collect(Collectors.toList()));
+                    return courseUser;
+                }).collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")

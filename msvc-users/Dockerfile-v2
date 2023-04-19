@@ -1,0 +1,21 @@
+FROM openjdk:17.0.2
+
+WORKDIR /app/msvc-users
+
+COPY ./pom.xml /app
+COPY ./msvc-users/.mvn ./.mvn
+COPY ./msvc-users/mvnw .
+COPY ./msvc-users/pom.xml .
+
+RUN ./mvnw clean package -Dmaven.test.skip -Dmaven.main.skip -Dspring-boot.repackage.skip && rm -r ./target/
+
+COPY ./msvc-users/src ./src
+
+RUN ./mvnw clean package -DskipTests
+
+EXPOSE 8001
+ENTRYPOINT ["java","-jar","./target/msvc-users.jar"]
+
+
+# docker build -t msvc-users-2 . -f ./msvc-users/Dockerfile-v2
+# docker run -p 8001:8001 msvc-users-2

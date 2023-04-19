@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<User> lisAll() {
+    public List<User> listAll() {
         return repository.findAll();
     }
 

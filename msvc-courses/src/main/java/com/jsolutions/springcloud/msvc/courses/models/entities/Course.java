@@ -29,7 +29,6 @@ public class Course {
     private String nombre;
 
     @NotNull(message = "Campo estado no puede ser nulo")
-    @NotEmpty(message = "Campo estado no puede ser vacio")
     @Column(name="status")
     private Boolean estado;
 

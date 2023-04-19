@@ -11,9 +11,7 @@
         <module name="msvc-users" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="msvc-user" target="17" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="17" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

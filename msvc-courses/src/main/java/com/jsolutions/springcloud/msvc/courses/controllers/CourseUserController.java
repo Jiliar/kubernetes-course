@@ -25,17 +25,12 @@ public class CourseUserController {
     @Autowired
     private CourseService courseService;
 
-
     @GetMapping("/user-details-by-course/{id}")
     public ResponseEntity<Course> getCourseUserDetailsById(@PathVariable Long id){
         Optional<Course> optionalCourse =  service.getUsersDetailsByCourse(id);
-        if(optionalCourse.isPresent()){
-            return ResponseEntity.ok()
-            .body(optionalCourse.get());
-        }else{
-            return ResponseEntity.notFound()
-            .build();
-        }
+        return optionalCourse.map(course -> ResponseEntity.ok()
+                .body(course)).orElseGet(() -> ResponseEntity.notFound()
+                .build());
     }
 
     @PutMapping("/assign-user/{courseId}")
@@ -95,7 +90,6 @@ public class CourseUserController {
         }
         return ResponseEntity.notFound().build();
     }
-
 
     @DeleteMapping("/delete-user/{idUser}")
     public ResponseEntity<?> deleteUserInCourseById(@PathVariable Long idUser){

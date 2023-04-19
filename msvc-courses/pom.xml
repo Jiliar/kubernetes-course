@@ -69,6 +69,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<mainClass>com.jsolutions.springcloud.msvc.courses.MsvcCoursesApplication</mainClass>
+					<layout>JAR</layout>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

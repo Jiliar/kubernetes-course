@@ -7,7 +7,7 @@ import com.jsolutions.springcloud.msvc.users.models.entities.User;
 
 public interface UserService {
     
-    List<User> lisAll();
+    List<User> listAll();
     Optional<User> findById(Long id);
     User save(User user);
     void delete(Long id);

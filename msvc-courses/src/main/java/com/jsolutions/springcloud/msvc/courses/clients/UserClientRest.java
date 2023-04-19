@@ -11,13 +11,13 @@ import com.jsolutions.springcloud.msvc.courses.models.User;
 
 import java.util.List;
 
-@FeignClient(name="msvc-users", url="localhost:8001/users")
+@FeignClient(name="msvc-users", url="host.docker.internal:8001/users")
 public interface UserClientRest{
 
     @GetMapping("/id/{id}")
     User getUserById(@PathVariable(name = "id") Long id);
 
-    @PostMapping
+    @PostMapping("/")
     User create(@RequestBody User user);
 
     @GetMapping("/users-details")
